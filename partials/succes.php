@@ -11,7 +11,7 @@ $realPsw = $_SESSION['finalPsw'];
 <body>
   <div class="container">
 
-    <h1>ciccio<?php echo $realPsw ?></h1>
+    <h1>La tua password: <?php echo $realPsw ?></h1>
   </div>
 </body>
 

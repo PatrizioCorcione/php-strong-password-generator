@@ -1,4 +1,5 @@
 <?php
+
 $pswLenght = $_GET['pswLenght'];
 
 function randomPassword($pswLenght)
@@ -13,14 +14,18 @@ function randomPassword($pswLenght)
   $simbols = ($simbolsBool) ? ['!', '?', '&', '%', '$', '&lt;', '&gt;', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='] : [];
   $possibility = array_merge($simbols, $numbers, $letters, $lettersUpp);
   $passGenereted = '';
+  if ($pswLenght > count($possibility) && $repetitionBool) {
+    $pswLenght = count($possibility);
+  };
   for ($i = 0; $i < intval($pswLenght); $i++) {
     if ($repetitionBool) {
-      $n = rand(0, count($possibility));
+      $n = rand(0, count($possibility) - 1);
       if (!str_contains($passGenereted, $possibility[$n])) {
         $passGenereted .= $possibility[$n];
+      } else {
+        $i--;
       }
     } else {
-      $i--;
       $n = rand(0, count($possibility));
       $passGenereted .= $possibility[$n];
     }
