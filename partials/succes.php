@@ -1,6 +1,9 @@
 <?php
 session_start();
-$realEmail = $_SESSION['finalEmail']
+$realEmail = $_SESSION['finalEmail'];
+// if (!isset($_SESSION['finalEmail'])) {
+//   header('Location: ../index.php');
+// }
 ?>
 
 <!DOCTYPE html>

@@ -18,6 +18,25 @@ if (isset($pswLenght)) {
         <label for="exampleInputEmail1" class="form-label">Inserisci la lunghezza desiderata</label>
         <input type="text" class="form-control" id="emailLenght" name="emailLenght">
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="checkLetters" name="lettersBool">
+        <label class="form-check-label" for="flexCheckDefault">
+          Lettere
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="checkNumbers" name="numbersBool">
+        <label class="form-check-label" for="flexCheckDefault">
+          Numeri
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="1" id="checkSimbols" name="simbolsBool">
+        <label class="form-check-label" for="flexCheckDefault">
+          Simboli
+        </label>
+      </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
