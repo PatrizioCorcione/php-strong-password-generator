@@ -1,5 +1,5 @@
 <?php
-$pswLenght = $_POST['emailLenght'];
+$pswLenght = $_GET['emailLenght'];
 function randomPassword($pswLenght)
 {
   $letters = 'qwertyuiopasdfghjklzxcvbnm';
