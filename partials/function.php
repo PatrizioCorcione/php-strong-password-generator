@@ -1,26 +1,29 @@
 <?php
-$pswLenght = $_GET['emailLenght'];
+$pswLenght = $_GET['pswLenght'];
 
 function randomPassword($pswLenght)
 {
   $lettersBool = $_GET['lettersBool'];
   $numbersBool = $_GET['numbersBool'];
   $simbolsBool = $_GET['simbolsBool'];
-  $letters = str_split('qwertyuiopasdfghjklzxcvbnm');
-  $lettersUpp = str_split('QWERTYUIOPASDFGHJKLZXCVBNM');
-  $numbers = str_split('1234567890');
-  $simbols = ['!', '?', '&', '%', '$', '&lt;', '&gt;', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='];
-  if ($lettersBool) {
-    $possibility = array_merge($letters, $lettersUpp);
-  } elseif ($numbersBool) {
-    $possibility = array_merge($numbers);
-  } elseif ($simbolsBool) {
-    $possibility = array_merge($simbols);
-  }
+  $repetitionBool = $_GET['repetitionBool'];
+  $letters = ($lettersBool) ? str_split('qwertyuiopasdfghjklzxcvbnm') : [];
+  $lettersUpp = ($lettersBool) ? str_split('QWERTYUIOPASDFGHJKLZXCVBNM') : [];
+  $numbers = ($numbersBool) ? str_split('1234567890') : [];
+  $simbols = ($simbolsBool) ? ['!', '?', '&', '%', '$', '&lt;', '&gt;', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='] : [];
+  $possibility = array_merge($simbols, $numbers, $letters, $lettersUpp);
   $passGenereted = '';
   for ($i = 0; $i < intval($pswLenght); $i++) {
-    $n = rand(0, count($possibility));
-    $passGenereted .= $possibility[$n];
+    if ($repetitionBool) {
+      $n = rand(0, count($possibility));
+      if (!str_contains($passGenereted, $possibility[$n])) {
+        $passGenereted .= $possibility[$n];
+      }
+    } else {
+      $i--;
+      $n = rand(0, count($possibility));
+      $passGenereted .= $possibility[$n];
+    }
   }
   return $passGenereted;
 }

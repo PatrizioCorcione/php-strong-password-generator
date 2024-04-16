@@ -1,9 +1,6 @@
 <?php
 session_start();
-$realEmail = $_SESSION['finalEmail'];
-// if (!isset($_SESSION['finalEmail'])) {
-//   header('Location: ../index.php');
-// }
+$realPsw = $_SESSION['finalPsw'];
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +10,8 @@ $realEmail = $_SESSION['finalEmail'];
 
 <body>
   <div class="container">
-    <h1><?php echo $realEmail ?></h1>
+
+    <h1>ciccio<?php echo $realPsw ?></h1>
   </div>
 </body>
 
